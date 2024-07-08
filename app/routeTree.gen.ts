@@ -11,32 +11,22 @@
 // Import Routes
 
 import { Route as rootRoute } from './routes/__root'
-import { Route as IndexImport } from './routes/index'
-import { Route as LayoutImport } from './routes/_layout'
-import { Route as DeferredImport } from './routes/deferred'
-import { Route as PostsImport } from './routes/posts'
 import { Route as RedirectImport } from './routes/redirect'
-import { Route as LayoutLayout2Import } from './routes/_layout/_layout-2'
-import { Route as PostsPostIdImport } from './routes/posts.$postId'
+import { Route as PostsImport } from './routes/posts'
+import { Route as DeferredImport } from './routes/deferred'
+import { Route as LayoutImport } from './routes/_layout'
+import { Route as IndexImport } from './routes/index'
 import { Route as PostsIndexImport } from './routes/posts.index'
-import { Route as LayoutLayout2LayoutAImport } from './routes/_layout/_layout-2/layout-a'
-import { Route as LayoutLayout2LayoutBImport } from './routes/_layout/_layout-2/layout-b'
+import { Route as PostsPostIdImport } from './routes/posts.$postId'
+import { Route as LayoutLayout2Import } from './routes/_layout/_layout-2'
 import { Route as PostsPostIdDeepImport } from './routes/posts_.$postId.deep'
+import { Route as LayoutLayout2LayoutBImport } from './routes/_layout/_layout-2/layout-b'
+import { Route as LayoutLayout2LayoutAImport } from './routes/_layout/_layout-2/layout-a'
 
 // Create/Update Routes
 
-const IndexRoute = IndexImport.update({
-  path: '/',
-  getParentRoute: () => rootRoute,
-} as any)
-
-const LayoutRoute = LayoutImport.update({
-  id: '/_layout',
-  getParentRoute: () => rootRoute,
-} as any)
-
-const DeferredRoute = DeferredImport.update({
-  path: '/deferred',
+const RedirectRoute = RedirectImport.update({
+  path: '/redirect',
   getParentRoute: () => rootRoute,
 } as any)
 
@@ -45,19 +35,19 @@ const PostsRoute = PostsImport.update({
   getParentRoute: () => rootRoute,
 } as any)
 
-const RedirectRoute = RedirectImport.update({
-  path: '/redirect',
+const DeferredRoute = DeferredImport.update({
+  path: '/deferred',
   getParentRoute: () => rootRoute,
 } as any)
 
-const LayoutLayout2Route = LayoutLayout2Import.update({
-  id: '/_layout-2',
-  getParentRoute: () => LayoutRoute,
+const LayoutRoute = LayoutImport.update({
+  id: '/_layout',
+  getParentRoute: () => rootRoute,
 } as any)
 
-const PostsPostIdRoute = PostsPostIdImport.update({
-  path: '/$postId',
-  getParentRoute: () => PostsRoute,
+const IndexRoute = IndexImport.update({
+  path: '/',
+  getParentRoute: () => rootRoute,
 } as any)
 
 const PostsIndexRoute = PostsIndexImport.update({
@@ -65,9 +55,19 @@ const PostsIndexRoute = PostsIndexImport.update({
   getParentRoute: () => PostsRoute,
 } as any)
 
-const LayoutLayout2LayoutARoute = LayoutLayout2LayoutAImport.update({
-  path: '/layout-a',
-  getParentRoute: () => LayoutLayout2Route,
+const PostsPostIdRoute = PostsPostIdImport.update({
+  path: '/$postId',
+  getParentRoute: () => PostsRoute,
+} as any)
+
+const LayoutLayout2Route = LayoutLayout2Import.update({
+  id: '/_layout-2',
+  getParentRoute: () => LayoutRoute,
+} as any)
+
+const PostsPostIdDeepRoute = PostsPostIdDeepImport.update({
+  path: '/posts/$postId/deep',
+  getParentRoute: () => rootRoute,
 } as any)
 
 const LayoutLayout2LayoutBRoute = LayoutLayout2LayoutBImport.update({
@@ -75,9 +75,9 @@ const LayoutLayout2LayoutBRoute = LayoutLayout2LayoutBImport.update({
   getParentRoute: () => LayoutLayout2Route,
 } as any)
 
-const PostsPostIdDeepRoute = PostsPostIdDeepImport.update({
-  path: '/posts/$postId/deep',
-  getParentRoute: () => rootRoute,
+const LayoutLayout2LayoutARoute = LayoutLayout2LayoutAImport.update({
+  path: '/layout-a',
+  getParentRoute: () => LayoutLayout2Route,
 } as any)
 
 // Populate the FileRoutesByPath interface
